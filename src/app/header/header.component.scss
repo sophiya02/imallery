@@ -1,0 +1,44 @@
+.mat-toolbar{
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+
+}
+.first-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo{
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.search-box{
+  width: 250px;
+  height: 38px;
+  border: 1px solid #CDCDCD;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.input-box{
+  border: none;
+}
+.input-box:focus{
+  outline: none;
+}
+
+.search-icon{
+  border-radius: 50%;
+  padding: 5px;
+  color:#BDBDBD;
+}
+
+.search-icon:hover{
+  cursor: pointer;
+}
+
