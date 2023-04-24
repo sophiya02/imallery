@@ -10,7 +10,7 @@ export interface DialogData{
   url: string;
 }
 
-const url = 'http://localhost:3000/api/v1/images';
+const url = 'https://imallery-backend.onrender.com/api/v1/images';
 
 @Component({
   selector: 'app-add-image-dialog',

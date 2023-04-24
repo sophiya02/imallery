@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject, map } from 'rxjs';
 import { Image } from '../models/models'
 
-const url = 'http://localhost:3000/api/v1/images';
+const url = 'https://imallery-backend.onrender.com/api/v1/images';
 @Injectable({
   providedIn: 'root'
 })
