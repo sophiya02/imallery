@@ -1,0 +1,44 @@
+<div class="main-card"></div>
+<h1 mat-dialog-title>Add a new photo</h1>
+
+<div class="img-bg" appDropZone (fileDropped)="uploader.addToQueue($event)">
+  <img src="../../assets/add-image (1).png" />
+
+  <form enctype="multipart/form-data">
+    <input type="file" name="image" #imageUploaderInput ng2FileSelect
+    [uploader]="uploader" style="display: none" (change)="onFileSelect($event)" accept="image/*">
+    <p class="mat-body">
+      Drag and drop or <span style="color: blue" (click)="chooseFile(imageUploaderInput, $event)" >browse</span> your image here
+    </p>
+  </form>
+
+</div>
+
+<p>Or</p>
+
+<form mat-dialog-content class="form" [formGroup]="formGroup">
+  <mat-form-field appearance="outline">
+    <mat-label> Photo URL</mat-label>
+    <input
+      formControlName="url"
+      matInput
+      placeholder="Enter the link to your image"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label> Image Tags</mat-label>
+    <input
+      formControlName="label"
+      matInput
+      placeholder="Enter tags related to your image"
+    />
+  </mat-form-field>
+
+</form>
+<div mat-dialog-actions class="mat-dialog-actions">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.url" (click)="save()">
+    Save
+  </button>
+</div>
+

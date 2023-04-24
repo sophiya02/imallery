@@ -1,27 +1,22 @@
-<!-- <p>gallery works!</p>
-<mat-grid-list cols="3"gutterSize="30px">
-    <mat-grid-tile class="mat-grid-tile">
-        <app-display-image [imgSrc]="'https://plus.unsplash.com/premium_photo-1674338458545-d03639ecbbc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'"></app-display-image>
-    </mat-grid-tile>
-    <mat-grid-tile class="mat-grid-tile">
-        <app-display-image [imgSrc]="'https://images.unsplash.com/photo-1677490384657-8dc0b0495580?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=962&q=80'"></app-display-image>
-    </mat-grid-tile>
-    <mat-grid-tile class="mat-grid-tile">
-        <app-display-image [imgSrc]="'https://images.unsplash.com/photo-1677490384657-8dc0b0495580?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=962&q=80'"></app-display-image>
-    </mat-grid-tile>
-    <mat-grid-tile class="mat-grid-tile">
-        <app-display-image [imgSrc]="'https://images.unsplash.com/photo-1677490384657-8dc0b0495580?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=962&q=80'"></app-display-image>
-    </mat-grid-tile>
-    <mat-grid-tile class="mat-grid-tile">
-        <app-display-image [imgSrc]="'https://plus.unsplash.com/premium_photo-1674338458545-d03639ecbbc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'"></app-display-image>
-    </mat-grid-tile>
-    <mat-grid-tile class="mat-grid-tile">
-        <app-display-image [imgSrc]="'https://plus.unsplash.com/premium_photo-1674338458545-d03639ecbbc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'"></app-display-image>
-    </mat-grid-tile>
-
-</mat-grid-list> -->
-<ngx-masonry>
-  <div ngxMasonryItem class="masonry-item" *ngFor="let item of masonryItems">
-    <!-- <img [src]="item.src"> -->{{item.src}}
+<div class="grid" [style.column-count]='isMobileScreen ? "1": isTabScreen? "2": "3"'>
+  <div class="grid-item" *ngFor="let image of images | async">
+    <img class="img" [src]="image.url" class="img">
+    <div class="overlay"></div>
+    <div class="overlay-items">
+      <h2>{{image.label}}</h2>
+      <div class="buttons">
+        <button mat-mini-fab [color]="color" (click)="changeColor(image)">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn" (click)="deleteImage(image._id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
-</ngx-masonry>
+</div>
+
+
+
+
+

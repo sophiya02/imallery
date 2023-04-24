@@ -1,11 +1,14 @@
 <mat-toolbar class="mat-toolbar">
-  <div class="first-block">
-      <span class="logo">MY Unsplash</span>
-      <div class="search-box">
+      <span class="logo">Imallery</span>
+      <div class="search-box" [style.width.%]="isMobileScreen? '100' : '50'">
           <input type="search" placeholder="Search by label" class="input-box">
           <mat-icon matSuffix matRipple class="search-icon">search</mat-icon>
       </div>
-
-  </div>
-  <button mat-raised-button color="primary">Add image</button>
+  <button *ngIf="!isMobileScreen" mat-raised-button color="primary" (click)="openAddImgDialog()">Add image</button>
+  <button *ngIf="isMobileScreen" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openAddImgDialog()" >Add Image</button>
+  </mat-menu>
 </mat-toolbar>

@@ -1,9 +1,85 @@
-.mat-grid-tile{
-  // height: auto;
-  // width:100%;
-  border: 2px solid red;
-  border-radius: 16px;
 
-  // overflow-y: visible;
-  // overflow-x: clip;
+.grid {
+  column-gap: 10px;
+  margin:auto;
+  padding: 5%;
+  display: block;
+  height: auto !important;
+}
+
+.grid-item {
+  // width: 100%;
+  // display: inline-block;
+  // margin-bottom: 10px;
+  // break-inside: avoid-column;
+  border-radius: 16px;
+}
+
+.img{
+  width: 100%;
+  display: inline-block;
+  break-inside: avoid-column;
+  border-radius: 16px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item:hover .overlay {
+  opacity: 1;
+}
+
+.grid-item:hover .overlay-items {
+  transform: translateY(0);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99%;
+  opacity: 0;
+  border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.5s ease;
+}
+
+.overlay-items {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: end;
+  margin: auto;
+
+}
+
+.overlay-items button{
+  height: 80%;
+  margin: 2%;
+}
+.overlay-items h2 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 10px;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+button{
+  margin: 10%;
 }
